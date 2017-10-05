@@ -1,5 +1,69 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <locale.h> 
+
+void configuracoes () {
+	
+	setlocale(LC_ALL,"Portuguese");
+	system("color 3f");	
+}
+
+void boasVindas () {
+		
+	printf("\n\n\n\n\n\n \t\t\t\t\t Gerador de Curriculos ");
+	printf("\n\n\n\n \t\t\t\t\t    Seja Bem Vindo! ");
+	printf("\n\n\n\n\n\n\n\n\n\n \t\t Lucas Bruno Ferreira");
+	printf("\n\n \t\t Sistemas de Informacao ");
+	printf("\n\n \t\t UNIPAM ");
+	sleep(4);
+	system("cls");
+}
+
+typedef struct DadosPessoais {
+	
+	char nome[15];
+	char rua[20];
+	char numero[6];
+	char cidade [15];
+	char telefone[15];
+	char email[20];
+	char situacao[10];
+		
+}dados;
+
+
+char dadosPessoais () {
+	
+	dados dados;
+	
+	char confirmar = 'n';
+		
+	while (confirmar == 'n' || confirmar == 'N' ) {
+			
+		system("cls");	
+			
+		printf("\n\n\t\t\t\t\t   DADOS PESSOAIS");
+		printf("\n\n\n\n\n\n\t\t\t\tNome Completo: ");
+		gets(dados.nome);
+		printf("\n\t\t\t\tNome da Rua:  ");
+		gets(dados.rua);
+		printf("\n\t\t\t\tNumero Residencial::  ");	
+		gets(dados.numero);
+		printf("\n\t\t\t\tCidade:  ");	
+		gets(dados.cidade);
+		printf("\n\t\t\t\tTelefone:  ");	
+		gets(dados.telefone);
+		printf("\n\t\t\t\tE-mail:  ");	
+		gets(dados.email);
+		printf("\n\t\t\t\tRelacionamento:  ");	
+		gets(dados.situacao);
+			
+		printf("\n\t\t\t\tDeseja confirmar seus Dados? :    S - Sim   ou   N - NAO ");
+		scanf("%c",&confirmar);
+				
+	}
+	
+}
 
 void folhaEstilo (FILE *curriculo) {  //CSS
 
@@ -14,7 +78,9 @@ void folhaEstilo (FILE *curriculo) {  //CSS
 
 }
 
-void htmlCurriculo (char *nome) {  //criação do arquivo e HTML
+void htmlCurriculo () {  //criação do arquivo HTML
+	
+	dados dados;
 	
 	FILE *curriculo;
 	
@@ -35,26 +101,26 @@ void htmlCurriculo (char *nome) {  //criação do arquivo e HTML
 			fputs("<div id='doc2'>",curriculo);
 				fputs("<div id='folha'>",curriculo);
 					fputs("<h1 id='nome'>",curriculo);
-						fputs (nome, curriculo);
+						fputs (dados.nome, curriculo);
 					fputs("</h1><br>",curriculo);
 					fputs("<div class='cabecalho'>",curriculo);
 						fputs("<img src='http://cdn2.hubspot.net/hubfs/1415475/blog-files/foto-3X4-img-dest.jpg'>",curriculo);
 						fputs("<div class='divisao'></div>",curriculo);
 						fputs("<h3>",curriculo);
-							fputs("ENDERECO",curriculo);
+							fputs(dados.rua,curriculo);
 							fputs(" &nbsp; ",curriculo);
-							fputs("NUMERO",curriculo);
+							fputs(dados.numero,curriculo);
 							fputs(" &nbsp; ",curriculo);
-							fputs("CIDADE",curriculo);
+							fputs(dados.cidade,curriculo);
 						fputs("</h3>",curriculo);
 						fputs("<h3>",curriculo);
-							fputs("EMAIL",curriculo);
+							fputs(dados.email,curriculo);
 						fputs("</h3>",curriculo);
 						fputs("<h3>",curriculo);
-							fputs("TELEFONE",curriculo);					
+							fputs(dados.telefone,curriculo);					
 						fputs("</h3>",curriculo);
 						fputs("<h3>",curriculo);
-							fputs("SITUAÇAO",curriculo);
+							fputs(dados.situacao,curriculo);
 						fputs("</h3>",curriculo);
 					fputs("</div>",curriculo);						
 					fputs("<div class='divisao'></div>",curriculo);
@@ -105,15 +171,13 @@ void htmlCurriculo (char *nome) {  //criação do arquivo e HTML
 
 main(){
 	
-	char nome[20];
-	
-	printf("Digite seu nome:  ");
-	gets(nome);
-	
-	htmlCurriculo(nome);
+	configuracoes();
+	boasVindas();	
+	dadosPessoais();
+	htmlCurriculo();
 	system("curriculo.html");
 	
-	
+	system("PAUSE>NUL");
 }
 
 

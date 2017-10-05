@@ -1,2 +1,11 @@
 # Gerador-de-Curriculo
-Gerar currículos em paginas HTML a partir de software em linguagem C
+
+## Detalhes
+Preencher dados basicos de um curriculo, e gera-lo em uma pagina web para impressao.
+
+## Linguages
+  Javascript
+  C
+## Complementos
+  HTML
+  CSS
