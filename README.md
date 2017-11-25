@@ -4,8 +4,12 @@
 Preencher dados basicos de um curriculo, e gera-lo em uma pagina web para impressao.
 
 ## Linguages
-  Javascript
-  C
+  * Javascript
+  * C
 ## Complementos
-  HTML
-  CSS
+  * HTML
+  * CSS
+  
+## Portifólio
+
+![Layout do Curriculo](https://imgur.com/3PNIJla "Layout do curriculo")
