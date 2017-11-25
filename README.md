@@ -12,4 +12,4 @@ Preencher dados basicos de um curriculo, e gera-lo em uma pagina web para impres
   
 ## Portifólio
 
-![Layout do Curriculo](https://imgur.com/3PNIJla "Layout do curriculo")
+![Layout do Curriculo](https://i.imgur.com/3PNIJla.png "Layout do curriculo")
